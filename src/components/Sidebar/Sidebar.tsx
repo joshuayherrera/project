@@ -99,7 +99,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggle }) => {
       </button>
 
       <div 
-        className={`${styles.overlay} ${isOpen ? styles.visible : ''}`}
+        className={`${styles.overlay} ${isOpen && isMobile ? styles.visible : ''}`}
         onClick={() => isMobile && setIsOpen(false)}
         role="presentation"
       />
