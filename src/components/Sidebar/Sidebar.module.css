@@ -1,0 +1,241 @@
+.sidebarWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 40;
+    touch-action: pan-y pinch-zoom;
+}
+
+.sidebar {
+    height: 100%;
+    background-color: white;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease-in-out;
+    width: 250px;
+    will-change: width;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.collapsed {
+    width: 72px;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 1;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.logoContainer img {
+    height: 32px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.companyName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+.collapsed .companyName {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    background: transparent;
+}
+
+.menuButton:hover {
+    background-color: #f3f4f6;
+    color: #2563eb;
+}
+
+.menuButton:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+.closeButton {
+    color: #ef4444;
+}
+
+.closeButton:hover {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #e5e7eb transparent;
+}
+
+.nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nav::-webkit-scrollbar-thumb {
+    background-color: #e5e7eb;
+    border-radius: 2px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: #6b7280;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    border: none;
+    background: transparent;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.navItem:hover {
+    background-color: #f3f4f6;
+    color: #2563eb;
+}
+
+.navItem:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+.navItem.active {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+.navIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    flex-shrink: 0;
+}
+
+.navText {
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.collapsed .navText {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.chevronIcon {
+    margin-left: auto;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+    flex-shrink: 0;
+}
+
+.collapsed .chevronIcon {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 30;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.overlay.visible {
+    display: block;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .sidebarWrapper {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        will-change: transform;
+    }
+
+    .sidebar {
+        width: 250px !important;
+    }
+
+    .open {
+        transform: translateX(0);
+    }
+
+    .menuButton {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        z-index: 20;
+    }
+
+    .closeButton {
+        position: static;
+        box-shadow: none;
+    }
+}
+
+@media (hover: none) {
+    .navItem:hover {
+        background-color: transparent;
+        color: #6b7280;
+    }
+
+    .navItem:active {
+        background-color: #f3f4f6;
+        color: #2563eb;
+    }
+}
