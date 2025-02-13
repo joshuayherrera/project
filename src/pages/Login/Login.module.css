@@ -1,0 +1,167 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+}
+
+.formSection {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.logoWrapper {
+  background-color: rgb(239 246 255);
+  padding: 1rem;
+  border-radius: 9999px;
+}
+
+.logoIcons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: rgb(37 99 235);
+}
+
+.title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  color: rgb(31 41 55);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgb(156 163 175);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 0.375rem;
+  line-height: 1.25;
+  background-color: white;
+  color: rgb(17 24 39);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input::placeholder {
+  color: rgb(107 114 128);
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgb(59 130 246);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+.buttonContainer {
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(37 99 235);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: background-color 0.15s ease-in-out;
+}
+
+.button:hover {
+  background-color: rgb(29 78 216);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px rgb(37 99 235);
+}
+
+.forgotPasswordContainer {
+  text-align: center;
+}
+
+.forgotPassword {
+  font-size: 0.875rem;
+  color: rgb(37 99 235);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+.forgotPassword:hover {
+  color: rgb(29 78 216);
+}
+
+.imageSection {
+  display: none;
+  width: 50%;
+  background-image: url("/src/assets/login.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(30, 58, 138, 0.5);
+}
+
+@media (min-width: 1024px) {
+  .formSection {
+    width: 50%;
+  }
+
+  .imageSection {
+    display: block;
+  }
+}
